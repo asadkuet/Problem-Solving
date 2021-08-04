@@ -1,22 +1,21 @@
 <?php
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
     function removeDuplicates($nums) {
         $n = count($nums);
-        $tmp = (isset($nums[0])) ? $nums[0] : null;
+        if(!$n) return 0;
+        $j = 0;
         for($i=1; $i<$n; $i++){
-            if($nums[$i] == $tmp){
-                
-            }
-            {
-                $tmp = $nums[$i];
-                $nums[$i] = $nums[$i+1];
-                $nums[$i+1] = $tmp;
+            if($nums[$i] != $nums[$j]){
+                $j++;
+                $nums[$j] = $nums[$i];
             }
         }
-        return $nums;
+        return $j+1;
     }
-
-    $nums = [0,0,0,1,1,2,3,4,5,5,5,6]; 
-    $result = removeDuplicates($nums);
-    print_r($result);
-
+}
 ?>
